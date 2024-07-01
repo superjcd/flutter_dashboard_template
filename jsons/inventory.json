@@ -1,0 +1,14 @@
+{
+    "inventoryId": "1",
+    "category": "cat",
+    "brand": "brand",
+    "supplier": "supplier",
+    "minimumStock": 10,
+    "updateDate": "updateDate",
+    "taxRate": 0.11,
+    "notes": "notes",
+    "productSize": "productSize",
+    "productWeight": "productWeight",
+    "partnershipProgramInfo": "partmership",
+    "storageLocation": "storageLocation"
+}
