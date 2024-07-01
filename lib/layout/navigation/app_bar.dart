@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'navigation_title.dart';
-import 'package:dashboard_template/api/auth.dart';
 
 class NavigationAppBar extends StatelessWidget implements PreferredSizeWidget {
   NavigationAppBar({super.key});
-  AuthApi authApi = AuthApi();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,7 @@ class NavigationAppBar extends StatelessWidget implements PreferredSizeWidget {
               PopupMenuItem(
                 child: const Text('Sign out'),
                 onTap: () {
-                  authApi.logout(context);
+   
                 },
               ),
             ],

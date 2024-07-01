@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:dashboard_template/layout/scaffold_with_navigation.dart';
-import 'package:dashboard_template/pages/login/login_page.dart';
 import 'package:dashboard_template/pages/dashboard/dashbord_page.dart';
 import 'package:dashboard_template/pages/users/dummy_users.dart';
 import 'package:dashboard_template/pages/users/user_page.dart';
@@ -114,20 +113,3 @@ class UserPageRoute extends GoRouteData {
 
 
 
-
-@TypedGoRoute<LoginRoute>(
-  path:LoginRoute.path,
-)
-
-
-class LoginRoute extends GoRouteData {
-    const LoginRoute();
-    
-    static const path = '/login';
-
-    @override
-    Widget build(BuildContext context, GoRouterState state) {
-      return const Login();
-    }
-    
-}

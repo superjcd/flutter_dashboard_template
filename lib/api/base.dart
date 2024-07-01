@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dashboard_template/router/router.dart';
-import 'package:dashboard_template/main.dart';
 import 'package:dashboard_template/logger.dart';
 
 
@@ -40,7 +37,6 @@ class DioService {
 
     _dio.interceptors.addAll([
       LoggerInterceptor(),
-      UnAuthorizedInterceptor()
     ]);
   }
 
@@ -73,31 +69,5 @@ class LoggerInterceptor extends Interceptor {
     return super.onRequest(options, handler);
   }
 
-  // @override
-  // void onResponse(Response response, ResponseInterceptorHandler handler) {
-  //   logger.d('StatusCode: ${response.statusCode}, Data: ${response.data}');
-  //   return super.onResponse(response, handler);
-  // }
 }
 
-class UnAuthorizedInterceptor extends Interceptor {
-  @override
-  void onError(DioException err, ErrorInterceptorHandler handler) {
-    final options = err.requestOptions;
-    if (err.response!.statusCode == 401) {
-         if (options.path.endsWith("login")) {
-            scaffoldMessengerKey.currentState!.showSnackBar(
-                const SnackBar(content: Text("登录信息错误, 请重试"))
-                );
-            return;
-         }else {
-            scaffoldMessengerKey.currentState!.showSnackBar(
-                const SnackBar(content: Text("Token过期, 请重新登录"))
-                );
-            const LoginRoute().go(rootNavigatorKey.currentContext!);
-            return;
-         }
-    }
-    return super.onError(err, handler);
-  }
-}
