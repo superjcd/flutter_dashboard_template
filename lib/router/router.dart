@@ -23,15 +23,6 @@ final router = GoRouter(
   debugLogDiagnostics: kDebugMode,
   initialLocation: routerInitialLocation, 
   navigatorKey: rootNavigatorKey,
-  redirect: (context, state) async {
-    final prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('token');
-    if (token == "" || token == null) {
-      return "/login";
-    }else {
-      return null;
-    }
-  },
 );
 
 
